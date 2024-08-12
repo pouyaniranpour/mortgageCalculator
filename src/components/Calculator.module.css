@@ -1,0 +1,456 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  font-family: "Plus Jakarta Sans";
+}
+
+.calculatorContainer {
+  background-color: white;
+  /* border-radius: 30px; */
+}
+
+body {
+  background-color: #e3f4fc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  font-family: "Plus Jakarta Sans";
+  font-size: 14px;
+  font-weight: 700;
+  padding-left: 20px;
+  /* height: 50px; */
+  color: #1d2731;
+  cursor: pointer;
+}
+
+.outerContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.calculatorContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 100%;
+  /* border-radius: 30px; */
+  height: 100%;
+}
+
+.calcForm {
+  padding: 20px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  width: 100%;
+}
+
+.calculatorFormSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formLabels {
+  margin: 4px;
+}
+
+.calculatorResultSection {
+  background-color: #133040;
+  /* border: 1px dashed white */
+  /* border-bottom-left-radius: 80px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px; */
+}
+
+.resultSectionInner, .mortgageTermAndInterestRate, 
+.calculatorTopArea, .submitButtonContainer, .inputContainer
+ {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .outerContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .calculatorContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    /* border-radius: 30px; */
+    height: 100%;
+  }
+
+  .calcForm {
+    padding: 20px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    width: 100%;
+  }
+
+  .calculatorFormSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .formLabels {
+    margin: 4px;
+  }
+
+  .calculatorResultSection {
+    background-color: #133040;
+    /* border: 1px dashed white */
+    /* border-bottom-left-radius: 80px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px; */
+  }
+
+  .resultSectionInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px 20px 20px;
+  }
+
+  .mortgageTermAndInterestRate {
+    flex-direction: column;
+  }
+
+  .leftSideInput {
+    width: 100%;
+  }
+
+  .calculatorTopArea {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px;
+  }
+
+  .submitButtonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 10px 10px 10px;
+  }
+
+  .mortgageTypes {
+    align-self: flex-start;
+    width: 100%;
+  }
+
+  .inputContainer {
+    display: flex;
+  }
+
+  input {
+    height: 40px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}
+
+/* The container */
+.radioContainer {
+  display: flex;
+  align-items: center;
+  /* height: 50px; */
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+}
+
+/* Hide the browser's default radio button */
+.radioContainer input {
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: relative;
+  left: -10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: 25px;
+  background-color: white;
+  border-radius: 50%;
+  border: 1px solid #d3d73b;
+}
+
+/* On mouse-over, add a grey background color */
+.radioContainer:hover input ~ .checkmark {
+  background-color: rgb(255, 250, 250);
+}
+
+.radioContainer input {
+  border: 1px solid black;
+}
+
+.radioContainer:hover {
+  border: 1px solid #d3d73b;
+}
+
+.radioContainer input:checked ~ .checkmark {
+  background-color: white;
+}
+
+.radioContainer:has(input:checked) {
+  border-color: #d3d73b;
+  background-color: #fafae0;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radioContainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radioContainer .checkmark:after {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #d3d73b;
+}
+
+.buttonChecked {
+  background-color: #fafae0;
+  border: 1px solid #d3d73b;
+  border-radius: 20px;
+}
+
+.clearButton {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: 700;
+  color: rgba(7,29,42,255)
+}
+
+/* .calculatorFormSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 20px 30px 20px;
+} */
+
+.mortgageTermAndInterestRate {
+  display: flex;
+  justify-content: space-between;
+}
+/* .mortgageTermAndInterestRate  input {
+  width: 150px
+} */
+
+.calculatorResultSection h2 {
+  color: white;
+}
+
+.calculatorResultSection p {
+  color: #9dbacc;
+  font-size: 16px;
+}
+
+.submitButton {
+  font-family: "Plus Jakarta Sans";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d9da31;
+  color: #132e3d;
+  /* height: 50px; */
+  width: 250px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  /* border: 1px solid green; */
+}
+
+.calcButtonText {
+  position: relative;
+  left: 5px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.errorMessage {
+  color: hsl(4, 69%, 50%);
+  margin: 0;
+}
+
+.errorMessageInputLeft,
+.errorMessageInputRight {
+  border-top: 1px solid hsl(4, 69%, 50%);
+  border-bottom: 1px solid hsl(4, 69%, 50%);
+  outline: none;
+}
+
+.errorMessageInputRight {
+  border-right: 1px solid hsl(4, 69%, 50%);
+  border-left: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  width: 100%;
+}
+.errorMessageInputLeft {
+  border-left: 1px solid hsl(4, 69%, 50%);
+  border-right: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  width: 150px;
+}
+
+.rightSideInput {
+  border-left: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  outline: none;
+  width: 100%;
+}
+.rightSideInput {
+  border-top: 1px solid #808f96;
+  border-right: 1px solid #808f96;
+  border-bottom: 1px solid #808f96;
+}
+
+.rightSideInput:focus + .leftSideLabel {
+  background-color: #d3d73b;
+  border-top: 1px solid #d3d73b;
+  border-left: 1px solid #d3d73b;
+  border-bottom: 1px solid #d3d73b;
+}
+.leftSideInput:focus + .rightSideLabel {
+  background-color: #d3d73b;
+  border-top: 1px solid #d3d73b;
+  border-right: 1px solid #d3d73b;
+  border-bottom: 1px solid #d3d73b;
+}
+
+.rightSideInput:focus {
+  border-top: 1px solid #d3d73b;
+  border-right: 1px solid #d3d73b;
+  border-bottom: 1px solid #d3d73b;
+}
+
+.leftSideInput:focus {
+  border-top: 1px solid #d3d73b;
+  border-left: 1px solid #d3d73b;
+  border-bottom: 1px solid #d3d73b;
+}
+
+.leftSideInput {
+  border-top: 1px solid #808f96;
+  border-left: 1px solid #808f96;
+  border-bottom: 1px solid #808f96;
+  border-right: none;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  outline: none;
+}
+
+label {
+  color: #506874;
+  cursor: pointer;
+}
+
+.leftSideLabel,
+.errorLabelLeft,
+.errorLabelRight,
+.rightSideLabel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  width: 60px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.errorLabelLeft {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.errorLabelLeft,
+.errorLabelRight {
+  background-color: hsl(4, 69%, 50%);
+  color: white;
+}
+
+.errorLabelRight,
+.rightSideLabel {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.errorLabelLeft,
+.leftSideLabel {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.leftSideLabel,
+.rightSideLabel {
+  background-color: #e3f4fc;
+  border-top: 1px solid #808f96;
+  border-bottom: 1px solid #808f96;
+}
+
+.leftSideLabel {
+  border-left: 1px solid #808f96;
+}
+.leftSideLabel:has(+ .rightSideInput:focus) {
+  background-color: #d3d73b;
+}
+.rightSideLabel {
+  border-right: 1px solid #808f96;
+}
