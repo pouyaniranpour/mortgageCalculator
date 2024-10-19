@@ -12,16 +12,12 @@ body {
   font-family: "Plus Jakarta Sans";
 }
 
-.calculatorContainer {
-  background-color: white;
-  /* border-radius: 30px; */
-}
 
-body {
+.mainContainer {
+  position: absolute;
   background-color: #e3f4fc;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 input {
@@ -38,6 +34,7 @@ input {
   display: flex;
   flex-direction: column;
   height: 100%;
+  width: 100%;
 }
 .calculatorContainer {
   display: flex;
@@ -66,20 +63,30 @@ input {
   margin: 4px;
 }
 
+
 .calculatorResultSection {
+  display: flex;
   background-color: #133040;
-  /* border: 1px dashed white */
-  /* border-bottom-left-radius: 80px;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px; */
+  height: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
-.resultSectionInner, .mortgageTermAndInterestRate, 
-.calculatorTopArea, .submitButtonContainer, .inputContainer
- {
+.calculatorContainer + {
   display: flex;
   flex-direction: column;
 }
+
+
+.inputContainer {
+  span {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -117,7 +124,6 @@ input {
 
   .calculatorResultSection {
     background-color: #133040;
-    /* border: 1px dashed white */
     /* border-bottom-left-radius: 80px;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px; */
@@ -128,11 +134,71 @@ input {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px 20px 20px;
+    padding: 10px 10px 10px 10px;
+
+    h1 {
+      align-self: flex-start;
+      margin: 0;
+      color: white;
+    }
+    h2 {
+      padding: 0;
+      margin: 10px 0px 0px 0px;
+    }
+      
+    
   }
+  .resultsText {
+    text-align: center;
+    padding-top: 0;
+    h2 {
+      color: white;
+    }
+    p {
+      color: #808f96;
+      font-weight: 550;
+    }
+  }
+
+  .resultsTextCompleted {
+    text-align: left;
+      font-weight: 550;
+      color: #808f96;
+    
+  }
+
+  .resultBox {
+    background-color: #0e2431;
+    /* border-top: #d5d82f; */
+    border-radius: 10px;
+    border-top: 3px solid #d5d82f;
+    padding: 5px 5px 5px 5px;
+  span {
+    color: #d3d73b;
+    font-size: 30px;
+    font-weight: 550;
+  }
+  h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    align-self: flex-start;
+    color: #808f96;
+  }
+  h2 {
+    color: white;
+  }
+  }
+  
 
   .mortgageTermAndInterestRate {
     flex-direction: column;
+      label {
+        flex-grow: 1;
+      }
+      .leftSideInput, .errorMessageInputLeft{
+        width: 100%;
+      }
+    
   }
 
   .leftSideInput {
@@ -170,10 +236,181 @@ input {
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
+  .outerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .calculatorContainer {
+    margin-top: 20px;
+    margin-bottom: 2%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 95%;
+    border-radius: 30px;
+    height: 100%;
+  }
+
+  .calcForm {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    width: 100%;
+  }
+  .calculatorTopArea {
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: 5px;
+  }
+  
+  .calculatorFormSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .formLabels {
+    margin: 4px;
+  }
+
+  
+
+  .calculatorResultSection {
+    background-color: #133040;
+    padding: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+
+  .resultSectionInner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      align-self: flex-start;
+      margin: 0;
+      color: white;
+    }
+    h2 {
+      padding: 0;
+      margin: 10px 0px 0px 0px;
+    }
+      
+    
+  }
+  .resultsText {
+    text-align: center;
+    padding-top: 0;
+    h2 {
+      color: white;
+    }
+    p {
+      color: #808f96;
+      font-weight: 550;
+    }
+  }
+
+  .resultsTextCompleted {
+    text-align: left;
+      font-weight: 550;
+      color: #808f96;
+    
+  }
+
+  .resultBox {
+    width: 100%;
+    background-color: #0e2431;
+    /* border-top: #d5d82f; */
+    border-radius: 10px;
+    border-top: 3px solid #d5d82f;
+    padding: 10px 10px 20px 10px;
+  span {
+    color: #d3d73b;
+    font-size: 30px;
+    font-weight: 550;
+  }
+  h3 {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+    color: #808f96;
+  }
+  h2 {
+    color: white;
+  }
+  }
+  
+
+  .mortgageTermAndInterestRate {
+    flex-direction: row;
+    justify-content: space-between;
+    
+
+      .leftSideInput, .errorMessageInputLeft{
+        width: 100%;
+      }
+      label {
+        flex-grow: 1;
+      }
+
+      label:first-child {
+        margin-right: 5px;
+      }
+      label:nth-child(2) {
+        margin-left: 5px;
+      }
+      
+  }
+
+
+  
+
+  .submitButtonContainer {
+    margin: 10px 10px 10px 10px;
+  }
+
+  .mortgageTypes {
+    align-self: flex-start;
+    width: 100%;
+  }
+
+  .inputContainer {
+    display: flex;
+  }
+
+  input {
+    height: 40px;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
+  .calculatorTopArea +{
+    text-wrap: nowrap;
+  }
+  .calculatorContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-height: 70%;
+    max-width: 75%;
+  }
+  .inputContainer span {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .calculatorResultSection {
+    display: flex;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 80px;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
@@ -191,6 +428,7 @@ input {
   /* height: 50px; */
   cursor: pointer;
   font-size: 16px;
+  font-weight: 600;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -293,14 +531,14 @@ input {
   width: 150px
 } */
 
-.calculatorResultSection h2 {
+/* .calculatorResultSection h2 {
   color: white;
 }
 
-.calculatorResultSection p {
+.calculatorResultSection p, h3 {
   color: #9dbacc;
   font-size: 16px;
-}
+} */
 
 .submitButton {
   font-family: "Plus Jakarta Sans";
@@ -314,7 +552,6 @@ input {
   padding: 10px 10px 10px 10px;
   border-radius: 50px;
   cursor: pointer;
-  /* border: 1px solid green; */
 }
 
 .calcButtonText {

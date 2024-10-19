@@ -50,7 +50,6 @@ function Calculator() {
   }
 
   function repaymentLoan(numberOfMonths, mortgageAmount, interestRate) {
-    console.log("in repayment loan");
     const interestRateDecimal = interestRate / 100;
     let periodicInterest = interestRateDecimal / 12;
     let partA = (1 + periodicInterest) ** numberOfMonths - 1;
@@ -202,7 +201,7 @@ function Calculator() {
           {!result ?
             (<div className={styles.resultSectionInner}>
               <img className={styles.calcIllustration} src={illustration} alt="illustration of a calculator" />
-              <div>
+              <div className={styles.resultsText}>
                 <h2>Results shown here</h2>
                 <p>Complete the form and click "calculate repayments" to see what your monthly repayments would be.</p>
               </div>
@@ -211,9 +210,19 @@ function Calculator() {
             :(
             <div className={styles.resultSectionInner}>
               <h1>Your Results</h1>
-              <p>Your results are shown below based on the information you provided.
+              <p className={styles.resultsTextCompleted}>Your results are shown below based on the information you provided.
                 To adjust the results, edit the form and click "calculate repayments" again.</p>
-              {result.monthlyRepayments}
+                <div className={styles.resultBox}>
+                  
+                    <h3>Your monthly repayments</h3>
+                    <span className={styles.monthlyRepaymentText}>{result.monthlyRepayments}</span>
+                    <hr />
+                    <h3>Total you'll repay over the term</h3>
+                  <h2>{result.totalPayments}</h2>
+                  
+                  
+                </div>
+                
           
             </div>)
           }
